@@ -11,7 +11,10 @@ import FixStyleOnlyEntriesPlugin from 'webpack-fix-style-only-entries'
 import { getStyleRules, ROOT_PATH } from './base'
 
 
-export default function makeProdConfig(baseConfig, { basePath = 'src', libraryExclude, buildDir = 'generated_assets/' }) {
+export default function makeProdConfig(
+  baseConfig,
+  { basePath = 'src', libraryExclude, buildDir = 'generated_assets/' },
+) {
   const config = { ...baseConfig }
 
   config.mode = 'production'
@@ -32,22 +35,20 @@ export default function makeProdConfig(baseConfig, { basePath = 'src', libraryEx
       filename: '[name].[chunkhash].css',
     }),
   )
-  config.optimization = {
-    minimizer: [
-      new UglifyJsPlugin({
-        uglifyOptions: {
-          mangle: {
-            keep_fnames: true,
-          },
-          ie8: false,
+  config.optimization.minimizer = [
+    new UglifyJsPlugin({
+      uglifyOptions: {
+        mangle: {
+          keep_fnames: true,
         },
-        sourceMap: true,
-        extractComments: true,
-        parallel: true,
-      }),
-      new OptimizeCSSAssetsPlugin({}),
-    ],
-  }
+        ie8: false,
+      },
+      sourceMap: true,
+      extractComments: true,
+      parallel: true,
+    }),
+    new OptimizeCSSAssetsPlugin({}),
+  ]
   if (process.env.WEBPACK_ANALYZE === 'true') {
     config.plugins.push(
       new BundleAnalyzerPlugin({

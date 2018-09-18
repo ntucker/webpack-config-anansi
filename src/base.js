@@ -88,7 +88,6 @@ export default function makeConfig({
     context: ROOT_PATH,
     entry: {
       App: [`./${basePath}/index.js`],
-      Vendor: ['react', 'react-dom'],
       Style: [`./${basePath}/style/main.scss`],
     },
     output: {
@@ -98,6 +97,18 @@ export default function makeConfig({
       globalObject: "(typeof self !== 'undefined' ? self : this)",
     },
     target: 'web',
+    optimization: {
+      splitChunks: {
+        chunks: 'all',
+        cacheGroups: {
+          vendor: {
+            test: /[\\/]node_modules[\\/](react|react-dom|schedule|object-assign|loose-envify)[\\/]/,
+            name: 'vendor',
+            chunks: 'all',
+          },
+        },
+      },
+    },
     plugins: [new BundleTracker({ filename: 'webpack-stats.json' })],
     module: {
       rules: [
