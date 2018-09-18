@@ -8,7 +8,12 @@ import { getStyleRules } from './base'
 
 export default function makeDevConfig(
   baseConfig,
-  { basePath = 'src', libraryExclude, buildDir = 'generated_assets/' },
+  {
+    basePath = 'src',
+    libraryExclude,
+    buildDir = 'generated_assets/',
+    htmlOptions = { title: 'Anansi app' },
+  },
 ) {
   const config = { ...baseConfig }
 
@@ -33,10 +38,7 @@ export default function makeDevConfig(
       // add errors to webpack instead of warnings
       failOnError: false,
     }),
-    new HtmlWebpackPlugin({
-      title: 'My app',
-      // template: 'src/index.html',
-    }),
+    new HtmlWebpackPlugin(htmlOptions),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),
     ...config.plugins,
