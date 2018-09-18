@@ -1,5 +1,4 @@
 # @anansi/webpack-config
-
 A webpack configuration for fast development and production ready optimizations
 
 ## Usage
@@ -39,9 +38,9 @@ export default makeProdConfig(baseConfig, options)
 
 ## Support
 
-- SCSS with CSS modules
-  - Use `${basePath}/style/export.scss` to add variables or mixins avaiable in all scss files
-- Web workers
-- All font formats
-- Any media files
-- And of course javascript
+* SCSS with CSS modules
+  * Use `${basePath}/style/export.scss` to add variables or mixins avaiable in all scss files
+* Web workers
+* All font formats
+* Any media files
+* And of course javascript
