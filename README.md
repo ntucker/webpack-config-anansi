@@ -40,6 +40,8 @@ export default makeProdConfig(baseConfig, options)
 
 * SCSS with CSS modules
   * Use `${basePath}/style/export.scss` to add variables or mixins avaiable in all scss files
+  * Put global styles within `${basePath}/style`
+  * Other styles will be treated as css modules
 * Web workers
 * All font formats
 * Any media files
