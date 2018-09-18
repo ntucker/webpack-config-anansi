@@ -20,6 +20,11 @@
   ],
   "author": "Nathaniel Tucker",
   "license": "BSD",
+  "homepage": "https://github.com/ntucker/webpack-config-anansi",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:ntucker/webpack-config-anansi.git"
+},
   "devDependencies": {
     "@anansi/babel-preset": "^0.4.6",
     "@anansi/eslint-config": "^0.4.2",
