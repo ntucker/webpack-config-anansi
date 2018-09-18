@@ -1,6 +1,5 @@
 import CircularDependencyPlugin from 'circular-dependency-plugin'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
-import { map } from 'ramda'
 import webpack from 'webpack'
 
 import { getStyleRules } from './base'
@@ -21,15 +20,6 @@ export default function makeDevConfig(
   config.output.pathinfo = true
   config.output.filename = '[name]-[hash].js'
   config.watch = true
-
-  config.entry = map(
-    entry => [
-      'webpack-dev-server/client?http://localhost:3000/',
-      'webpack/hot/only-dev-server',
-      ...entry,
-    ],
-    config.entry,
-  )
 
   config.plugins = [
     new CircularDependencyPlugin({
