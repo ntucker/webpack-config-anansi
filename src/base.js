@@ -78,7 +78,7 @@ export function getStyleRules({
   ]
 }
 
-export default function makeConfig({
+export default function makeBaseConfig({
   basePath = 'src',
   libraryInclude = always(false),
   libraryExclude,

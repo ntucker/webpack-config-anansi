@@ -3,7 +3,7 @@ A webpack configuration for fast development and production ready optimizations
 
 ## Usage
 
-webpack.config.base.babel.js
+/webpack.config.babel.js
 
 ```javascript
 import { makeConfig } from '@anansi/webpack-config'
@@ -16,25 +16,16 @@ export const options = {
 export default makeConfig(options)
 ```
 
-webpack.config.dev.babel.js
-
-```javascript
-import { makeDevConfig } from '@anansi/webpack-config'
-
-import baseConfig, { options } from './webpack.config.base.babel'
-
-export default makeDevConfig(baseConfig, options)
+/package.json
+```json
+{
+  "scripts": {
+    "start:dev": "webpack-dev-server --config=webpack.config.babel.js --mode=development",
+    "build": "webpack --config=webpack.config.babel.js --mode=production"
+  }
+}
 ```
 
-webpack.config.prod.babel.js
-
-```javascript
-import { makeProdConfig } from '@anansi/webpack-config'
-
-import baseConfig, { options } from './webpack.config.base.babel'
-
-export default makeProdConfig(baseConfig, options)
-```
 
 ## Support
 
