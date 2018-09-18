@@ -88,12 +88,11 @@ export default function makeConfig({
     context: ROOT_PATH,
     entry: {
       App: [`./${basePath}/index.js`],
-      Style: [`./${basePath}/style/main.scss`],
     },
     output: {
       path: path.join(ROOT_PATH, buildDir),
-      filename: '[name]-[chunkhash].js',
-      chunkFilename: '[name]-[chunkhash].chunk.js',
+      filename: '[name]-[contenthash].js',
+      chunkFilename: '[name]-[contenthash].chunk.js',
       globalObject: "(typeof self !== 'undefined' ? self : this)",
     },
     target: 'web',
@@ -105,6 +104,12 @@ export default function makeConfig({
             test: /[\\/]node_modules[\\/](react|react-dom|schedule|object-assign|loose-envify)[\\/]/,
             name: 'vendor',
             chunks: 'all',
+          },
+          styles: {
+            test: /style\/.*\.scss$/,
+            name: 'style',
+            chunks: 'all',
+            enforce: true,
           },
         },
       },

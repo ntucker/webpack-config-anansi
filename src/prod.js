@@ -32,7 +32,8 @@ export default function makeProdConfig(
     }),
     new FixStyleOnlyEntriesPlugin(),
     new MiniCssExtractPlugin({
-      filename: '[name].[chunkhash].css',
+      filename: '[name].[contenthash].css',
+      chunkFilename: '[name].[contenthash].css',
     }),
   )
   config.optimization.minimizer = [
