@@ -132,10 +132,6 @@ export default function makeBaseConfig({
           use: [{ loader: 'url-loader', options: { limit: 1000 } }],
         },
         {
-          test: /\.(pdf)$/,
-          use: 'file-loader',
-        },
-        {
           test: /\.(md|txt)$/,
           use: 'raw-loader',
         },
@@ -155,15 +151,11 @@ export default function makeBaseConfig({
           ],
         },
         {
-          test: /\.otf(\?v=\d+\.\d+\.\d+)?$/,
+          test: /\.(otf|eot)(\?v=\d+\.\d+\.\d+)?$/,
           use: 'file-loader',
         },
         {
-          test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,
-          use: 'file-loader',
-        },
-        {
-          test: /\.(webm|mp4)$/,
+          test: /\.(pdf|webm|mp4)$/,
           use: 'file-loader',
         },
         {
